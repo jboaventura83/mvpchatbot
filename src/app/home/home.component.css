@@ -1,0 +1,6 @@
+#dvFundo {
+    background: url('/assets/img/chatbot-fundo.jpeg') no-repeat; 
+    width: auto;
+    height: calc(100vh - 60px);
+    background-size: cover;
+}
