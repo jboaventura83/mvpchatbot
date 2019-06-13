@@ -9,6 +9,9 @@
 //        isOpen = true;
 //    }
 //}
+
+// JJ
+
 $(document).ready(function () {
     var isOpen = false;
     $('.chat-header').click(function () {
