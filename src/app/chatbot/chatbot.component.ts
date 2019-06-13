@@ -21,24 +21,24 @@ export class ChatbotComponent implements OnInit {
 
   ngOnInit() {
     const directLine = window.WebChat.createDirectLine({
-        secret: 'ozKD8pY18C4.K_9vTXJvN5xYLjx2cV_14aFKbrNleBerKvMmjAYVmSo',
+        secret: 'THQq-_c64qU.rQUxpXbK5jE4p1wk-9Y7vCgEAe1ideOlfd2R975_r3s',
         webSocket: false
     });
 
     window.WebChat.renderWebChat(
         {
             directLine: directLine,
-            userID: "USER_ID"
+            userID: 'USER_ID'
         },
         this.botWindowElement.nativeElement
     );
 
     directLine
         .postActivity({
-            from: { id: "USER_ID", name: "USER_NAME" },
-            name: "requestWelcomeDialog",
-            type: "event",
-            value: "token"
+            from: { id: 'USER_ID', name: 'USER_NAME' },
+            name: 'requestWelcomeDialog',
+            type: 'event',
+            value: 'token'
         })
         .subscribe(
             id => console.log(`Posted activity, assigned ID ${id}`),
