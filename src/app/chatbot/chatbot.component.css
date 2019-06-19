@@ -1,26 +1,227 @@
-:host,
-.flex,
-.main-container,
-.webchat-container {
-    height: 100%;
-    overflow: hidden;
+#dvFundo {
+  background: url("/assets/img/bg.jpg") no-repeat;
+  width: auto;
+  height: calc(100vh - 60px);
+  background-size: cover;
 }
 
-.flex {
-    display: flex;
-    height: 100%;
+.boxChat {
+  position: fixed;
+  right: 25px;
+  bottom: 15px;
+  font-family: "Roboto", sans-serif;
+  
 }
 
-.main-container {
-    flex: 3;
-    background-color: #f2f2f2;
-    padding: 1rem;
+.boxConversa {
+  width: 300px;
+  height: calc(70vh - 100px);
+  min-height: 155px;
+  padding: 10px;
+  right: -500px;
+  bottom: 90px;
+  position: fixed;
+  box-shadow: 1px 0px 6px 1px #dadada;
+  background: #008cba;
+  border-radius: 2px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
-.webchat-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: flex-end;
+.bC-On {
+  right: 20px !important;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
+
+.headerBC {
+  width: 100%;
+  padding: 0 0 5px 0;
+  margin: 0 0 5px 0;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  color: white;
+}
+
+.footerBC {
+  width: 100%;
+  background-color: #eceff1;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border: 1px  gray;
+  height: 43px;
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+  margin: 7px 0;
+}
+
+.footerBC input {
+  width: 80%;
+  height: 37px;
+  resize: none;
+  outline: none;
+  font-size: 15px;
+  border: 1px  gray;
+  font-family: "Roboto", sans-serif;
+}
+
+.footerBC .send-btn {
+  width: 20%;
+  content: "a";
+  display: inline-block;
+  background-image: url(../../assets/img/send.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 37px;
+  resize: none;
+  outline: none;
+  font-size: 15px;
+  border: 1px  gray;
+  font-family: "Roboto", sans-serif;
+}
+
+.closeChat {
+  padding: 0 4px;
+  float: right;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 100%;
+  color: white;
+}
+
+.conteudoBC {
+  /*background: rgba(247, 247, 247, 0.54);*/
+  background: white;
+  height: calc(97% - 80px);
+  min-height: 55px;
+  padding: 5px;
+  overflow-x: auto;
+  width: 100%;
+  border: 1px solid #dcdcdc;
+}
+
+.conteudoBC::-webkit-scrollbar-track,
+.footerBC textarea::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+.conteudoBC::-webkit-scrollbar,
+.footerBC textarea::-webkit-scrollbar {
+  width: 6px;
+  background: #f4f4f4;
+}
+.conteudoBC::-webkit-scrollbar-thumb,
+.footerBC textarea::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+}
+
+.conteudoBC p {
+  margin: 7px 0;
+}
+
+.bgAjuda {
+  background: #008cba;
+  color: white;
+  padding: 5px 17px;
+  position: fixed;
+  z-index: 999;
+  right: 100px;
+  bottom: 27px;
+  border-radius: 5px;
+  display: none;
+}
+
+p .linhaChat {
+  width: 80%;
+  float: left;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 0 0 12px 0;
+  background: lightblue;
+  color: darkblue;
+  border: 1px solid black;
+}
+
+p .c-user {
+  border-radius: 12px 0 0 0;
+  float: right;
+  background: lightgray;
+  color: #005cb0;
+  border: 1px solid #dcdcdc;
+  color: #000;
+}
+
+.boxChatIcone {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  float: left;
+}
+.boxChatIcone figure {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+}
+.boxChatIcone figure img {
+  display: block;
+  position: relative;
+  z-index: 10;
+}
+.boxChatIcone figure figcaption {
+  display: block;
+  position: absolute;
+  z-index: 5;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.boxChatIcone figure figcaption {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 29px 44px;
+  background: url("../../assets/img/icon_chat2.png") no-repeat;
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.boxChatIcone figure img {
+  backface-visibility: hidden;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.boxChatIcone figure:hover img,
+figure.hover img {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.boxChatIcone figure:hover figcaption,
+figure.hover figcaption {
+  -webkit-transform: rotateX(0);
+  -moz-transform: rotateX(0);
+  transform: rotateX(0);
+}
+
+.boxChatIcone figure:hover .bgAjuda {
+  display: none;
+}
+
+
+

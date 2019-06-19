@@ -1,8 +1,32 @@
+<div id="dvFundo"></div>
+<div class="boxChat">
+  <div class="boxChatIcone">
+    <div class="boxConversa">
+      <div class="headerBC">
+        Suporte Virtual Prodesp
+        <span class="closeChat">X</span>
+      </div>
 
-    <div class="flex">
-        <div class="main-container mt-5">
-            <h1>MVP Chatbot</h1>
-        </div>
-      <div class="webchat-container" #botWindow></div>
+      <div id="conteudoBC" class="conteudoBC">
+      </div>
+
+      <div class="footerBC">
+        <input
+          type="text"
+          id="chatInput"
+          style="width: 80%;"
+          placeholder="Digite uma mensagem..."
+          onkeypress="return newEvent(event)"
+        />
+        <a href="#" onclick="novoEvento()" class="send-btn"></a>
+      </div>
+    </div>
+
+    <figure>
+      <div class="bgAjuda">Posso te ajudar?</div>
+      <img src="../../assets/img/icon_chat.png" alt="" />
+      <figcaption></figcaption>
+    </figure>
   </div>
+</div>
 
