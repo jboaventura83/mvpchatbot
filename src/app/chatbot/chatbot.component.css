@@ -134,24 +134,23 @@
   right: 100px;
   bottom: 27px;
   border-radius: 5px;
-  display: none;
 }
 
-p .linhaChat {
+.linhaChat {
   width: 80%;
   float: left;
   font-size: 14px;
   padding: 5px;
   border-radius: 0 0 12px 0;
-  background: lightblue;
+  background: lightgoldenrodyellow;
   color: darkblue;
-  border: 1px solid black;
+  border: 1px solid #dcdcdc;
 }
 
-p .c-user {
+.c-user {
   border-radius: 12px 0 0 0;
   float: right;
-  background: lightgray;
+  background: lightcyan;
   color: #005cb0;
   border: 1px solid #dcdcdc;
   color: #000;

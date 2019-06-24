@@ -1,7 +1,5 @@
 
 $(document).ready(function () {
-    var isOpen = false;
-
 	$(".bgAjuda").show(200);
 			
     $( ".boxChatIcone figure" ).hover(function() {
@@ -23,6 +21,10 @@ var params = {},
     watson = 'Azure';
 
 function userMessage(message) {
+    var chat_body = document.getElementById('conteudoBC');
+    if (chat_body === null) {
+        return;
+    }
 
     params.question = message;
     
@@ -88,15 +90,21 @@ function novoEvento() {
 
 function displayMessage(text, user) {
     var chat_body = document.getElementById('conteudoBC');
-    var bubble = document.createElement('p');
-    bubble.setAttribute("class", "linhaChat");
-    if (user === "user") {
-        bubble.className += " c-user";
+    if(chat_body !== null) {
+        var bubble = document.createElement('p');
+        if (bubble !== null) {
+            bubble.setAttribute("class", "linhaChat");
+            if (user === "user") {
+                bubble.className += " c-user";
+            }
+        
+            bubble.innerHTML = text;
+            chat_body.appendChild(bubble);
+            chat_body.scrollTop = chat_body.scrollHeight;
+        }
+        
     }
-
-    bubble.innerHTML = text;
-    chat_body.appendChild(bubble);
-    chat_body.scrollTop = chat_body.scrollHeight;
+    
 }
 
 

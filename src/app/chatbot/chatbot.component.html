@@ -1,13 +1,13 @@
 <div id="dvFundo"></div>
 <div class="boxChat">
   <div class="boxChatIcone">
-    <div class="boxConversa">
+    <div #dvConversa class="boxConversa">
       <div class="headerBC">
         Suporte Virtual Prodesp
-        <span class="closeChat">X</span>
+        <span (click)="fechaChat()" class="closeChat">X</span>
       </div>
 
-      <div id="conteudoBC" class="conteudoBC">
+      <div id="conteudoBC" class="conteudoBC" #dvConteudo>
       </div>
 
       <div class="footerBC">
@@ -22,9 +22,9 @@
       </div>
     </div>
 
-    <figure>
-      <div class="bgAjuda">Posso te ajudar?</div>
-      <img src="../../assets/img/icon_chat.png" alt="" />
+    <figure #chatIcon (click)="abreChat()" >
+      <div *ngIf="!mostraChat" class="bgAjuda">Posso te ajudar?</div>
+      <img src="../../assets/img/icon_chat.png" alt=""  />
       <figcaption></figcaption>
     </figure>
   </div>
