@@ -11,14 +11,8 @@
       </div>
 
       <div class="footerBC">
-        <input
-          type="text"
-          id="chatInput"
-          style="width: 80%;"
-          placeholder="Digite uma mensagem..."
-          onkeypress="return newEvent(event)"
-        />
-        <a href="#" onclick="novoEvento()" class="send-btn"></a>
+        <input type="text" id="chatInput" style="width: 80%;" placeholder="Digite uma mensagem..." #txtMessage/>
+        <input type="submit" id="btnSendMessage" value='' name='btnSendMessage' (click)="novoEvento()" class="send-btn"/>
       </div>
     </div>
 

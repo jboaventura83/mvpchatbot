@@ -74,7 +74,6 @@
 
 .footerBC .send-btn {
   width: 20%;
-  content: "a";
   display: inline-block;
   background-image: url(../../assets/img/send.png);
   background-repeat: no-repeat;

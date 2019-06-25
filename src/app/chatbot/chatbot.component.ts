@@ -12,19 +12,13 @@ export class ChatbotComponent implements OnInit {
   @ViewChild('chatIcon') chatIcon: any;
   @ViewChild('dvConversa') dvConversa: any;
   @ViewChild('dvConteudo') dvConteudo: any;
+  @ViewChild('txtMessage') txtMessage: any;
   mostraChat: boolean;
 
   constructor(private renderer: Renderer2, private chatbotService: AzurechatbotService) { }
 
   ngOnInit() {
     this.mostraChat = false;
-    this.displayMessage('Olá sou o assistente...', 'robot');
-    this.displayMessage('teste', 'user');
-    this.chatbotService.getAnswerFromAzureChatbot('oi').subscribe((response: QnAResponse) => {
-      console.log(response);
-    }, error => {
-      console.error(error);
-    });
   }
 
   abreChat() {
@@ -51,6 +45,31 @@ export class ChatbotComponent implements OnInit {
 
      this.renderer.appendChild(this.dvConteudo.nativeElement, bubble);
      this.dvConteudo.nativeElement.scrollTop = this.dvConteudo.nativeElement.scrollHeight;
+  }
+
+  userMessage(message: string) {
+    this.chatbotService.getAnswerFromAzureChatbot(message).subscribe((response: QnAResponse) => {
+      console.log(JSON.stringify(response));
+      response.answers.forEach(answer => {
+        this.displayMessage(answer.answer, 'robot');
+      });
+    }, error => {
+      console.error(error);
+      this.displayMessage('Problemas ao enviar mensagem ao servidor. Você pode tentar novamente.', 'robot');
+    });
+  }
+
+  novoEvento() {
+    let userInput = this.txtMessage.nativeElement.value;
+    console.log('userInput: ' + userInput);
+    userInput = userInput.replace(/(\r\n|\n|\r)/gm, '');
+    console.log('userInput: ' + userInput);
+    if (userInput) {
+        this.displayMessage(userInput, 'user');
+        this.txtMessage.nativeElement.value = '';
+        console.log('chamando o serviço: ' + userInput);
+        this.userMessage(userInput);
+    }
   }
 
 }
