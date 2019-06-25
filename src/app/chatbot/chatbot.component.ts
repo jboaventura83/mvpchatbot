@@ -19,6 +19,7 @@ export class ChatbotComponent implements OnInit {
 
   ngOnInit() {
     this.mostraChat = false;
+    this.userMessage('oi');
   }
 
   abreChat() {
