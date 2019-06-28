@@ -18,6 +18,7 @@ import { UserService } from './_services/user.service';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { AzurechatbotService } from './_services/azurechatbot.service';
 import { SobreComponent } from './sobre/sobre.component';
+import { ClimatempoService } from './_services/climatempo.service';
 
 
 
@@ -48,7 +49,8 @@ export function tokenGetter() {
       AlertifyService,
       AuthGuard,
       UserService,
-      AzurechatbotService
+      AzurechatbotService,
+      ClimatempoService
    ],
    bootstrap: [
       AppComponent
