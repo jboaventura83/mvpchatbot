@@ -17,6 +17,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { AzurechatbotService } from './_services/azurechatbot.service';
+import { SobreComponent } from './sobre/sobre.component';
 
 
 
@@ -29,7 +30,8 @@ export function tokenGetter() {
       AppComponent,
       NavComponent,
       HomeComponent,
-      ChatbotComponent
+      ChatbotComponent,
+      SobreComponent
    ],
    imports: [
       BrowserModule,

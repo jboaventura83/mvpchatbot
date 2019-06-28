@@ -1,0 +1,10 @@
+#dvFundo {
+    background: url("/assets/img/bg.jpg") no-repeat;
+    width: auto;
+    height: calc(100vh - 70px);
+    background-size: cover;
+  }
+
+  p {
+      padding-left: 15px;
+  }
