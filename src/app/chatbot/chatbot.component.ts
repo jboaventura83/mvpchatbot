@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { AzurechatbotService } from '../_services/azurechatbot.service';
 import { QnAResponse } from '../_models/qnaresponse';
+import { ClimatempoService } from '../_services/climatempo.service';
+import { ClimateResponse } from '../_models/climateresponse';
 
 
 @Component({
@@ -15,7 +17,8 @@ export class ChatbotComponent implements OnInit {
   @ViewChild('txtMessage') txtMessage: any;
   mostraChat: boolean;
 
-  constructor(private renderer: Renderer2, private chatbotService: AzurechatbotService) { }
+  constructor(private renderer: Renderer2, private chatbotService: AzurechatbotService,
+              private climatempoService: ClimatempoService) { }
 
   ngOnInit() {
     this.mostraChat = false;
@@ -52,7 +55,22 @@ export class ChatbotComponent implements OnInit {
     this.chatbotService.getAnswerFromAzureChatbot(message).subscribe((response: QnAResponse) => {
       console.log(JSON.stringify(response));
       response.answers.forEach(answer => {
-        this.displayMessage(answer.answer, 'robot');
+        if (answer.answer === '[CLIMATEMPO]') {
+          this.displayMessage('Consultando dados de clima em API externa... um momento..', 'robot');
+
+          this.climatempoService.getClimateDataFromClimatempo().subscribe((responseFromClimatempo: ClimateResponse) => {
+            console.log(JSON.stringify(responseFromClimatempo));
+            this.displayMessage('A temperatura atual em São Paulo é de ' + responseFromClimatempo.data.temperature +
+                              ' graus C, sensação térmica de ' + responseFromClimatempo.data.sensation +
+                              ' graus C e as condições são de ' + responseFromClimatempo.data.condition, 'robot');
+          }, error => {
+            console.error(error);
+            this.displayMessage('Problemas ao enviar/receber dados de clima', 'robot');
+          });
+
+        } else {
+          this.displayMessage(answer.answer, 'robot');
+        }
       });
     }, error => {
       console.error(error);
